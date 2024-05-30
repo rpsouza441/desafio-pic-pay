@@ -1,6 +1,5 @@
 DELETE FROM tb_transfer;
 DELETE FROM tb_wallet;
-DELETE FROM tb_wallet_type;
 
 
 
