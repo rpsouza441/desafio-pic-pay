@@ -12,19 +12,19 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="full_name")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name="cpf_cnpj",unique = true)
+    @Column(name = "cpf_cnpj", unique = true)
     private String cpfCnpj;
 
-    @Column(name="email",unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="balance")
+    @Column(name = "balance")
     private BigDecimal balance = BigDecimal.ZERO;
 
     @ManyToOne
@@ -41,9 +41,22 @@ public class Wallet {
         this.password = password;
         this.walletType = walletType;
     }
+
+    public Wallet(Long id, String fullName, String cpfCnpj, String email, String password, BigDecimal balance,
+            WalletType walletType) {
+        this.id = id;
+        this.fullName = fullName;
+        this.cpfCnpj = cpfCnpj;
+        this.email = email;
+        this.password = password;
+        this.balance = balance;
+        this.walletType = walletType;
+    }
+
     public boolean isTransferAllowedForWalletType() {
         return this.walletType.equals(WalletType.Enum.USER.get());
     }
+
     public boolean isBalanceEqualOrGreaterThan(BigDecimal value) {
         return this.balance.doubleValue() >= value.doubleValue();
     }
@@ -53,7 +66,7 @@ public class Wallet {
     }
 
     public void credit(BigDecimal value) {
-        this.balance= this.balance.add(value);
+        this.balance = this.balance.add(value);
     }
 
     public Long getId() {
@@ -111,7 +124,5 @@ public class Wallet {
     public void setWalletType(WalletType walletType) {
         this.walletType = walletType;
     }
-
-
 
 }

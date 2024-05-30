@@ -5,10 +5,10 @@ DELETE FROM tb_wallet;
 
 
 INSERT INTO tb_wallet (id, full_name, cpf_cnpj, email, password, balance, wallet_type_id)
-VALUES (1, 'Pedro S', '12345', 'pedro@email.com', '123123', 10, 1);
+VALUES (500L, 'Dean W', '123345', 'dean@email.com', '123456', 10, 1L);
 
 INSERT INTO tb_wallet (id, full_name, cpf_cnpj, email, password, balance, wallet_type_id)
-VALUES (1, 'Maria R', '23456', 'maria@email.com', '123123', 30, 1);
+VALUES (501L, 'Samuel W', '678901', 'sam@email.com', '800900', 30, 1L);
 
 INSERT INTO tb_wallet (id, full_name, cpf_cnpj, email, password, balance, wallet_type_id)
-VALUES (1, 'Joao W', '34567', 'joao@email.com', '123123', 50, 2);
+VALUES (502L, 'Castiel', '000001', 'cas@email.com', '123', 50, 2L);

@@ -2,14 +2,12 @@ package br.dev.rodrigopinheioro.picpay.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
-@Table(name ="tb_wallet_type")
+@Table(name = "tb_wallet_type")
 public class WalletType {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String description;
@@ -38,8 +36,7 @@ public class WalletType {
         this.description = description;
     }
 
-
-    public enum Enum{
+    public enum Enum {
 
         USER(1L, "user"),
         MERCHANT(2L, "merchant");
@@ -52,22 +49,40 @@ public class WalletType {
         private Long id;
         private String description;
 
-        public WalletType get(){
+        public WalletType get() {
             return new WalletType(id, description);
         }
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        WalletType that = (WalletType) o;
-        return Objects.equals(id, that.id) && Objects.equals(description, that.description);
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, description);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((description == null) ? 0 : description.hashCode());
+        return result;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        WalletType other = (WalletType) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (description == null) {
+            if (other.description != null)
+                return false;
+        } else if (!description.equals(other.description))
+            return false;
+        return true;
+    }
+
 }

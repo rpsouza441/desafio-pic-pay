@@ -21,7 +21,7 @@ public class Transfer {
     @JoinColumn(name = "wallet_receiver_id")
     private Wallet receiver;
 
-    @Column(name = "value")
+    @Column(name = "value_amount")
     private BigDecimal value;
 
     public UUID getId() {

@@ -13,6 +13,7 @@ public class AuthorizationService {
         this.authorizationClient = authorizationClient;
     }
 
+    @SuppressWarnings("null")
     public boolean isAuthorized(TransferDto transferDto){
         var resp = authorizationClient.isAuthorized();
         if(resp.getStatusCode().isError()){
